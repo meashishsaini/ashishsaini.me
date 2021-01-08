@@ -7,7 +7,7 @@ import Projects from "../components/Projects";
 const ProjectsPage = () => (
 	<Layout>
 		<SEO title="Project" />
-		<Projects partial={false} />
+		<Projects wholePage={true} />
 	</Layout>
 );
 

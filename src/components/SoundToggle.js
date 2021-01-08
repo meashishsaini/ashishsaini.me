@@ -5,6 +5,7 @@ import { SoundContext } from "./SoundContext";
 import sound_on from "../sounds/sound_on.mp3";
 import sound_off from "../sounds/sound_off.mp3";
 import ToggleSwitch from "./ToggleSwitch";
+
 const SoundOnSVG = (props) => {
 	return (
 		<svg

@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { Link } from "gatsby";
+import useSound from "use-sound";
+
+import click_sound from "../sounds/click.mp3";
 
 const Project = ({ title, image, description, link }) => {
 	return (
@@ -73,7 +75,9 @@ fragment fluidImage on File {
 	}
 }
 `;
-const Projects = ({ partial }) => {
+const Projects = ({ wholePage }) => {
+	const [showAll, setShowAll] = React.useState(false);
+	const [click] = useSound(click_sound);
 	const data = useStaticQuery(graphql`
 		{
 			ignouDateSheetImage: file(relativePath: {eq: "projects/ignou.jpg"}) {
@@ -117,27 +121,42 @@ const Projects = ({ partial }) => {
 	];
 	return (
 		<section>
-			{!partial &&
-				<article>
-					Here are the projects I have worked on and/or currently working ✌🏽:
-				</article>}
 			<h1>Projects</h1>
+			<article>
+				Here are the projects I have worked on and/or currently working on ✌🏽:
+			</article>
 			{projects.slice(0, 2)}
-			{partial
-				? <Link to="/projects">View all →</Link>
-				: projects.slice(2, projects.length)
+			{(showAll || wholePage) &&
+				projects.slice(2, projects.length)
+			}
+			{!wholePage &&
+				<Button onClick={() => {
+					click();
+					setShowAll((showAll) => !showAll);
+				}}>
+					{showAll ? "Show less ←" : "View all →"}
+				</Button>
 			}
 
 		</section>
 	);
 };
+const Button = styled.button`
+	background: var(--color-background)!important;
+	border: none;
+	padding: 0!important;
+	text-decoration: underline;
+	cursor: pointer;
+	color: var(--color-secondary);
+	font-size: 1em;
 
+`;
 Projects.defaultProps = {
-	partial: true
+	wholePage: false
 };
 
 Projects.propTypes = {
-	partial: PropTypes.bool
+	wholePage: PropTypes.bool
 };
 
 export default Projects;
