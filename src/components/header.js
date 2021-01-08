@@ -1,42 +1,30 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 
-const Header = ({ siteTitle }) => (
-	<header
-		style={{
-			background: `rebeccapurple`,
-			marginBottom: `1.45rem`,
-		}}
-	>
-		<div
-			style={{
-				margin: `0 auto`,
-				maxWidth: 960,
-				padding: `1.45rem 1.0875rem`,
-			}}
-		>
-			<h1 style={{ margin: 0 }}>
-				<Link
-					to="/"
-					style={{
-						color: `white`,
-						textDecoration: `none`,
-					}}
-				>
-					{siteTitle}
-				</Link>
-			</h1>
-		</div>
-	</header>
+import DarkToggle from "./DarkToggle";
+import SoundToggle from "./SoundToggle";
+
+const Header = () => (
+	<StyledHeader>
+		<ToggleWrapper>
+			<DarkToggle />
+		</ToggleWrapper>
+		<ToggleWrapper>
+			<SoundToggle />
+		</ToggleWrapper>
+	</StyledHeader>
 );
 
-Header.propTypes = {
-	siteTitle: PropTypes.string,
-};
+const ToggleWrapper = styled.div`
+	margin: auto 8px;
+`;
 
-Header.defaultProps = {
-	siteTitle: ``,
-};
+const StyledHeader = styled.header`
+	display: flex;
+	flex: 1 0 auto;
+	height: 4rem;
+	max-height: 4rem;
+	margin: auto 0px auto auto;
+`;
 
 export default Header;

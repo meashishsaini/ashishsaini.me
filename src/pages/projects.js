@@ -3,14 +3,12 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/seo";
 import Projects from "../components/Projects";
-import About from "../components/About";
 
-const IndexPage = () => (
+const ProjectsPage = () => (
 	<Layout>
-		<SEO title="Home" />
-		<About />
-		<Projects />
+		<SEO title="Project" />
+		<Projects partial={false} />
 	</Layout>
 );
 
-export default IndexPage;
+export default ProjectsPage;
