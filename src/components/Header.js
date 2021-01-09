@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import DarkToggle from "./DarkToggle";
 import SoundToggle from "./SoundToggle";
+import Language from "./Language";
 
 const Header = () => (
 	<StyledHeader>
@@ -11,6 +12,9 @@ const Header = () => (
 		</ToggleWrapper>
 		<ToggleWrapper>
 			<SoundToggle />
+		</ToggleWrapper>
+		<ToggleWrapper>
+			<Language />
 		</ToggleWrapper>
 	</StyledHeader>
 );

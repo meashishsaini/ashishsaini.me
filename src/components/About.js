@@ -1,28 +1,33 @@
 import React from "react";
 import styled from "styled-components";
+import { useIntl } from "gatsby-plugin-intl";
 
 import Avatar from "./Avatar";
 import SocialLinks from "./SocialLinks";
 import Leafs from "./Leafs";
 import { mq } from "../constants";
 
-const About = () => (
-	<AboutSection>
-		<div className="name-avatar-container">
-			<Avatar />
-			<div className="name-container">
-				<div className="title">Ashish Saini</div>
-				<div className="subtitle">Software Developer</div>
+const About = () => {
+	const intl = useIntl();
+
+	return (
+		<AboutSection>
+			<div className="name-avatar-container">
+				<Avatar />
+				<div className="name-container">
+					<div className="title">{intl.formatMessage({ id: "name" })}</div>
+					<div className="subtitle">{intl.formatMessage({ id: "subtitle" })}</div>
+				</div>
 			</div>
-		</div>
-		<DescriptionArticle>
-			Hi👋🏽! I am a freelance software developer.
-			I make things which help solve little problems.
-		</DescriptionArticle>
-		<SocialLinks />
-		<Leafs />
-	</AboutSection>
-);
+			<DescriptionArticle>
+				{intl.formatMessage({ id: "description" })}
+			</DescriptionArticle>
+			<SocialLinks />
+			<Leafs />
+		</AboutSection>
+	);
+
+};
 
 const DescriptionArticle = styled.article`
 	margin: 16px 0;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useIntl } from "gatsby-plugin-intl";
 
 const Social = {
 	twitter: "https://www.twitter.com/meAshishSaini",
@@ -10,6 +11,8 @@ const Social = {
 
 const SocialLinks = () => {
 	const links = [];
+	const intl = useIntl();
+
 	for (let key in Social) {
 		links.push(
 			<a
@@ -17,7 +20,7 @@ const SocialLinks = () => {
 				target="_blank"
 				rel="noreferrer"
 				href={Social[key]}>
-				{key}
+				{intl.formatMessage({ id: key })}
 			</a>);
 	}
 	return (

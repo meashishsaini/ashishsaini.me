@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import useSound from "use-sound";
+import { useIntl } from "gatsby-plugin-intl";
 
 import click_sound from "../sounds/click.mp3";
 
@@ -78,6 +79,7 @@ fragment fluidImage on File {
 const Projects = ({ wholePage }) => {
 	const [showAll, setShowAll] = React.useState(false);
 	const [click] = useSound(click_sound);
+	const intl = useIntl();
 	const data = useStaticQuery(graphql`
 		{
 			ignouDateSheetImage: file(relativePath: {eq: "projects/ignou.jpg"}) {
@@ -95,36 +97,38 @@ const Projects = ({ wholePage }) => {
 		<Project
 			key={1}
 			link="https://ashishsaini.me/projects/ignou-datesheet/index.html"
-			title="IGNOU Date-sheet"
+			title={intl.formatMessage({ id: "project_ignou_datesheet_ttl" })}
 			image={data.ignouDateSheetImage.childImageSharp.fluid}
-			description="You can download date-sheet for your programme or individual courses. No need to download full date-sheet and searching for your subjects." />,
+			description={intl.formatMessage({ id: "project_ignou_datesheet_desc" })} />,
 		<Project
 			key={2}
-			link="https://github.com/meashishsaini/captcha-solver"
-			title="Captcha Solver" image={data.captchaSolver.childImageSharp.fluid}
-			description="Train and solve captchas of UP Scholarship website using tensorflow." />,
+			link="https://github.com/meashishsaini/tmpmail-python"
+			title={intl.formatMessage({ id: "project_tmpmail_ttl" })} image={data.python.childImageSharp.fluid}
+			description={intl.formatMessage({ id: "project_tmpmail_desc" })} />,
 		<Project
 			key={3}
-			link="https://github.com/meashishsaini/tmpmail-python"
-			title="tmpmail" image={data.python.childImageSharp.fluid}
-			description="Create and view temporary mailbox using 1secmail API." />,
+			link="https://github.com/meashishsaini/captcha-solver"
+			title={intl.formatMessage({ id: "project_captcha_solver_ttl" })} image={data.captchaSolver.childImageSharp.fluid}
+			description={intl.formatMessage({ id: "project_captcha_solver_desc" })} />,
 		<Project
 			key={4}
 			link="https://github.com/meashishsaini/bsnl"
-			title="BSNL Scripts" image={data.python.childImageSharp.fluid}
-			description="Collection of scripts for BSNL broadband connection." />,
+			title={intl.formatMessage({ id: "project_bsnl_scripts_ttl" })} image={data.python.childImageSharp.fluid}
+			description={intl.formatMessage({ id: "project_bsnl_scripts_desc" })} />,
 		<Project
 			key={5}
 			link="https://github.com/meashishsaini/ignou-datesheet-extract"
-			title="IGNOU date-sheet extractor" image={data.python.childImageSharp.fluid}
-			description="Extract the date-sheet from pdf provided by IGNOU in a json file. " />
+			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })} image={data.python.childImageSharp.fluid}
+			description={intl.formatMessage({ id: "project_ignou_dst_ext_desc" })} />
 	];
+
 	return (
 		<section>
-			<h1>Projects</h1>
+			<h1>{intl.formatMessage({ id: "projects" })}</h1>
 			<article>
-				Here are the projects I have worked on and/or currently working on ✌🏽:
+				{intl.formatMessage({ id: "projects_introduction" })}
 			</article>
+			{/* Show only two projects by default. */}
 			{projects.slice(0, 2)}
 			{(showAll || wholePage) &&
 				projects.slice(2, projects.length)
@@ -134,10 +138,9 @@ const Projects = ({ wholePage }) => {
 					click();
 					setShowAll((showAll) => !showAll);
 				}}>
-					{showAll ? "Show less ←" : "View all →"}
+					{showAll ? intl.formatMessage({ id: "show_less" }) : intl.formatMessage({ id: "show_all" })}
 				</Button>
 			}
-
 		</section>
 	);
 };

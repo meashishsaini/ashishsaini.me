@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
+import { useIntl } from "gatsby-plugin-intl";
 
 import Header from "./Header";
 
 const Layout = ({ children }) => {
+	const intl = useIntl();
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -23,8 +25,8 @@ const Layout = ({ children }) => {
 					<Header siteTitle={data.site.siteMetadata?.title || `Title`} />
 					<main>{children}</main>
 					<footer>
-						<div>Thanks for visiting.</div>
-						<div>Made in India with ❤️</div>
+						<div>{intl.formatMessage({ id: "visiting_thanks" })}</div>
+						<div>{intl.formatMessage({ id: "made_in_india" })}</div>
 					</footer>
 
 				</Wrapper >
