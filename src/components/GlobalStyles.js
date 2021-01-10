@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "@fontsource/roboto-mono";
+import "@fontsource/khula";
 
 const GlobalStyles = createGlobalStyle`
 	html {
@@ -7,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
 	}
 	*, *:before, *:after {
 			box-sizing: border-box;
-			font-family: "Roboto Mono", monospace;
+			font-family: "Roboto Mono", "khula", monospace;
 
 	}
 	body {
