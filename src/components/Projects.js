@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import useSound from "use-sound";
-import { useIntl } from "gatsby-plugin-intl";
+import { useIntl, Link } from "gatsby-plugin-intl";
 
 import click_sound from "../sounds/click.mp3";
 
@@ -80,6 +80,10 @@ const Projects = ({ wholePage }) => {
 	const [showAll, setShowAll] = React.useState(false);
 	const [click] = useSound(click_sound);
 	const intl = useIntl();
+	const [isClient, setClient] = React.useState(false);
+
+	React.useEffect(() => setClient(true), []);
+
 	const data = useStaticQuery(graphql`
 		{
 			ignouDateSheetImage: file(relativePath: {eq: "projects/ignou.jpg"}) {
@@ -121,6 +125,7 @@ const Projects = ({ wholePage }) => {
 			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })} image={data.python.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_ignou_dst_ext_desc" })} />
 	];
+	const showMessage = showAll ? intl.formatMessage({ id: "show_less" }) : intl.formatMessage({ id: "show_all" });
 
 	return (
 		<section>
@@ -134,16 +139,24 @@ const Projects = ({ wholePage }) => {
 				projects.slice(2, projects.length)
 			}
 			{!wholePage &&
-				<Button onClick={() => {
-					click();
-					setShowAll((showAll) => !showAll);
-				}}>
-					{showAll ? intl.formatMessage({ id: "show_less" }) : intl.formatMessage({ id: "show_all" })}
-				</Button>
+				/* Render a link during SSR else render link.*/
+				(isClient ?
+					<Button
+						onClick={() => {
+							click();
+							setShowAll((showAll) => !showAll);
+						}}>
+						{showMessage}
+					</Button>
+					:
+					<Link to="/projects">
+						{showMessage}
+					</Link>)
 			}
 		</section>
 	);
 };
+
 const Button = styled.button`
 	background: var(--color-background)!important;
 	border: none;
@@ -152,8 +165,8 @@ const Button = styled.button`
 	cursor: pointer;
 	color: var(--color-secondary);
 	font-size: 1em;
-
 `;
+
 Projects.defaultProps = {
 	wholePage: false
 };
