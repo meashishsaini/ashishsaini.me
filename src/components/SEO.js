@@ -100,7 +100,7 @@ function SEO({ description, lang, meta, title, image: metaImage }) {
 					"@type": "Person",
 					"name": "Ashish Saini",
 					"url": "https://ashishsaini.me",
-					"description": "Portfolio of Ashish Saini and his contact info.",
+					"description": "Personal website of Ashish Saini and his contact info.",
 					"jobTitle": "Software Developer",
 					"email": "mailto:hello@ashishsaini.me",
 					"image": "https://ashishsaini.me/avatar.jpg",

@@ -5,7 +5,7 @@ const matchLocaleRegex = new RegExp(`^/(${supportedLocaleRegexGroups})`);
 module.exports = {
 	siteMetadata: {
 		title: `Ashish Saini`,
-		description: `Portfolio of Ashish Saini.`,
+		description: `Personal website of Ashish Saini.`,
 		author: `@meashishsaini`,
 		siteUrl: `https://ashishsaini.me`,
 	},
@@ -63,7 +63,7 @@ module.exports = {
 			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: `Ashish Saini`,
-				short_name: `Portfolio`,
+				short_name: `Ashish`,
 				start_url: `/`,
 				background_color: `#f8fdff`,
 				theme_color: `#1a237e`,
