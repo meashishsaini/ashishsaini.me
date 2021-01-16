@@ -13,6 +13,7 @@ const IndexPage = () => {
 			<SEO
 				title="Home"
 				lang={intl.locale}
+				image={{ src: "/background/Mataura.png", height: 3200, width: 2400 }}
 			/>
 			<About />
 			<Projects />

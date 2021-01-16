@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, image: metaImage }) {
 	const { site } = useStaticQuery(
 		graphql`
 			query {
@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, title }) {
 						title
 						description
 						author
+						siteUrl
 					}
 				}
 			}
@@ -19,6 +20,10 @@ function SEO({ description, lang, meta, title }) {
 	);
 
 	const metaDescription = description || site.siteMetadata.description;
+	const image =
+		metaImage && metaImage.src
+			? `${site.siteMetadata.siteUrl}${metaImage.src}`
+			: null;
 	const defaultTitle = site.siteMetadata?.title;
 
 	return (
@@ -61,8 +66,54 @@ function SEO({ description, lang, meta, title }) {
 					name: `twitter:description`,
 					content: metaDescription,
 				},
-			].concat(meta)}
-		/>
+			].concat(
+				metaImage
+					? [
+						{
+							property: "og:image",
+							content: image,
+						},
+						{
+							property: "og:image:width",
+							content: metaImage.width,
+						},
+						{
+							property: "og:image:height",
+							content: metaImage.height,
+						},
+						{
+							name: "twitter:card",
+							content: "summary_large_image",
+						},
+					]
+					: [
+						{
+							name: "twitter:card",
+							content: "summary",
+						},
+					]
+			).concat(meta)}
+		>
+			<script type="application/ld+json">
+				{`{
+					"@context": "https://schema.org",
+					"@type": "Person",
+					"name": "Ashish Saini",
+					"url": "https://ashishsaini.me",
+					"description": "Portfolio of Ashish Saini and his contact info.",
+					"jobTitle": "Software Developer",
+					"email": "mailto:hello@ashishsaini.me",
+					"image": "https://ashishsaini.me/avatar.jpg",
+					"sameAs": [
+						"https://www.facebook.com/meAshishSaini",
+						"https://instagram.com/meashishsaini",
+						"https://twitter.com/meashishsaini",
+						"https://www.linkedin.com/in/meashishsaini"
+						]
+					}
+				`}
+			</script>
+		</Helmet>
 	);
 }
 
@@ -77,6 +128,11 @@ SEO.propTypes = {
 	lang: PropTypes.string,
 	meta: PropTypes.arrayOf(PropTypes.object),
 	title: PropTypes.string.isRequired,
+	image: PropTypes.shape({
+		src: PropTypes.string.isRequired,
+		height: PropTypes.number.isRequired,
+		width: PropTypes.number.isRequired,
+	}),
 };
 
 export default SEO;

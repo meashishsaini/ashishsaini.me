@@ -15,8 +15,8 @@ const About = () => {
 			<div className="name-avatar-container">
 				<Avatar />
 				<div className="name-container">
-					<div className="title">{intl.formatMessage({ id: "name" })}</div>
-					<div className="subtitle">{intl.formatMessage({ id: "subtitle" })}</div>
+					<h1 className="title">{intl.formatMessage({ id: "name" })}</h1>
+					<h2 className="subtitle">{intl.formatMessage({ id: "subtitle" })}</h2>
 				</div>
 			</div>
 			<DescriptionArticle>
@@ -52,11 +52,15 @@ const AboutSection = styled.section`
 	}
 	.title {
 		font-size: 2.5em;
+		margin-top: 4px;
+		margin-bottom: 4px;
 	}
 	.subtitle {
 		font-weight: 100;
 		font-size: 1.5em;
 		color: var(--color-gray500);
+		margin-top: 4px;
+		margin-bottom: 4px;
 	}
 `;
 

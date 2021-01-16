@@ -2,8 +2,10 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { useIntl } from "gatsby-plugin-intl";
 
 const Avatar = () => {
+	const intl = useIntl();
 	const data = useStaticQuery(graphql`
 		query {
 			placeholderImage: file(
@@ -22,7 +24,7 @@ const Avatar = () => {
 		return <div>Picture not found</div>;
 	}
 
-	return <StyledImg fluid={data.placeholderImage.childImageSharp.fluid} />;
+	return <StyledImg alt={intl.formatMessage({ id: "avatar_alt" })} fluid={data.placeholderImage.childImageSharp.fluid} />;
 };
 
 const StyledImg = styled(Img)`

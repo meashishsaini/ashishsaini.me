@@ -1,0 +1,88 @@
+==================================================================
+https://keybase.io/meashishsaini
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.ashishsaini.me
+  * I am meashishsaini (https://keybase.io/meashishsaini) on keybase.
+  * I have a public key with fingerprint B14B FA03 487A 0035 5D83  67D4 9A48 ECE1 0121 5A8E
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101fefbc0a9b7e6bb2887e9e66bbb5543f3dde0590cfecff6f94e97d7cf16f7d6ec0a",
+      "fingerprint": "b14bfa03487a00355d8367d49a48ece101215a8e",
+      "host": "keybase.io",
+      "key_id": "9a48ece101215a8e",
+      "kid": "01017421a01a85a30d82bccb9f4e4b36255d0c89aab4ef3da218374d3692f57f84800a",
+      "uid": "47e44761419c955c80d24c399571d619",
+      "username": "meashishsaini"
+    },
+    "merkle_root": {
+      "ctime": 1508474227,
+      "hash_meta": "9052f66989d6a5557c5ee8c383a729eb5d4bb17765800157532d440178603c53",
+      "seqno": 1606376
+    },
+    "revoke": {
+      "sig_ids": [
+        "581f053324e47950bfccc20f3826fd3a62a0d2ea193f22aa39cb7828805fbc0a0f"
+      ]
+    },
+    "service": {
+      "hostname": "www.ashishsaini.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1508474247,
+  "expire_in": 157680000,
+  "prev": "3437b4982670878c12b6560e01e23d5223585aa342b5e9f873d2e8cb9609218b",
+  "seqno": 28,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMQEAnicbVN7UFVFHL6QjwEfWdNMKZMNJy1MdPbsnj27C+YrUqBBJycTH8xlzzl7
+4Mjl3uu9F0QFysxs+sOhUvAVFoZolEg6JY0PBBsbfGSOM5jlsxRKuCr5DrO9d2xs
+mv7as3u+3+/3fd9+e2DQI674mHXpXedjEuesjDnUsrTINfu3shVLFMNnLVJSligF
+IroIjyWCIXeBYykpClCBagvbMAFnBhG6YUBKiWBCl58GxhqykWUJgBkwbWHatm4z
+TTBiEdNWdZtYupClSrJiO948EfAHHG9ItjVUzbA5QBolHACEsUWRTiyNcY0KU8ih
+UMWcClmY7wtGKiQ5gwfFWMcnz+TGHaX3P/iHvIkGVQ5UTjFHwKLQME2D2ZrQDKRD
+ORKYlHFuaEJK4FCliGgW0hm0MbGpRkGUd1G0nUaEphFd1VRmMoxNCiyomYgxTFRL
+V1kEGBQBLy8UEl0oeDDfCeYHueN1lLJkeRAo8Ah3wOcLRRw2Q04Ep2JANUkSEqlS
+VrgLRYhHRAEMbV1nlFk6xxgTEwtBTUQRJ5AJA1uaYaiE6FhyVDHBCFqaJvVSHSAT
+I0kmKBZ4fXKCDnREdMkgIIp9BSIyPOjkSe+CSspcBVPVBhghKD0hDAPDNk0TAhtR
+qNsW4jrkUqfgKkM2hJwjZhqEygAAHE0EsJWcssiwQLFjRptHLuuBCQsXLhz7LxvG
+FkYuxx/whXymzyP/54dC/mBKxJ3QIn+0QBjuB63chuO1ZGBkRbEIBB2fV2qRyP8Y
+p0njRInfCQi3E0FgoktHAIjMEcWyJdIQMTQm5RBACTVVaOhYBwKoAiILQ4iwDAdH
+GjSwYDYlSMqlMiU6YDIQxkMnIZU8eZ7sKf3z8lBRQChlLfvn9XHFxLv69Y2NvCRX
+fNyQf97Xjoohrhp+zcmqujFu2eZdTlzC1QZ9fP81m/u33d/TPW5g+dmrG+98XrN7
+aVrlKy1jnq4bnlvV0V46q8b1Sfu92ulVQjk2e2m4Bw+rnn4ps6iUDRuVt+mFpMq0
+J+ZsOz4ze0PPiAk1i8nuHT9t7NKfPLLu+eL0oY8OKKsdXdFWmtr3Gnur/BcjgbZc
++H1xYmoYHtuYWb1lU6HxavbNxwa1pedWdNUNzhmtxKSN2Hwj5/LUSwfnf6/tfXtK
+Q0c4q373B37vhoRfn2saM/d2WhLpVzIpuz1pW+q5+n1ZI9Prt1Z2np99fsCJ5rt1
+HJ/6dv7wtbMGVpxomj7xj8bjfz6bm1BypynQfG/e3Mapq3rCB1L5xTdes/Z9qSuH
+vzgXf23i3sQly2c1Fq2oLLXWf6pUNPY2Hx184cgV3mtCX3Vj3dHEtXz79uRTuKcp
+ef32WG/WoeXpvs4FMzaU91pbWlqPHdi5tbprQm3rmtDEl56auWlbC8/tZhn1H66f
+fDnz5DRPfUecZ2Z4eHUGrJiSEvvRvcMloUMZL1/sHnp40uTgx7fe9GTnqGdwR2yD
+5/HukqYfVt8iZz9r31ni2l/F+tytG7n/fXXP6UHVz2Tl3+7ObruYdv2br89cb/6q
+1b/vftz4v/IamqauupLd1tp7MHk1PflueNfeZdOOrks8fbygwH395ozanzPNIWtv
+/pjxTueLo6a83vldT/l7SeG/AcX5ExY=
+=hgZl
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/meashishsaini
+
+==================================================================

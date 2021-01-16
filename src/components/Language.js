@@ -24,7 +24,6 @@ const Language = () => {
 										key={language}
 										language={language}
 										lang={language}
-										currentLocale={currentLocale}
 										to={`${location.pathname.replace(new RegExp(`^/(${supportedLocaleRegexGroups})`), ``)}`}
 									>
 										{languageName[language]}

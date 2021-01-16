@@ -70,7 +70,7 @@ Project.propTypes = {
 export const fluidImage = graphql`
 fragment fluidImage on File {
 	childImageSharp {
-		fluid(maxWidth: 300) {
+		fluid(maxWidth: 100) {
 			...GatsbyImageSharpFluid
 		}
 	}
@@ -100,29 +100,33 @@ const Projects = ({ wholePage }) => {
 	const projects = [
 		<Project
 			key={1}
-			link="https://ashishsaini.me/projects/ignou-datesheet/index.html"
+			link="https://gc.ashishsaini.me/projects/ignou-datesheet/index.html"
 			title={intl.formatMessage({ id: "project_ignou_datesheet_ttl" })}
 			image={data.ignouDateSheetImage.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_ignou_datesheet_desc" })} />,
 		<Project
 			key={2}
 			link="https://github.com/meashishsaini/tmpmail-python"
-			title={intl.formatMessage({ id: "project_tmpmail_ttl" })} image={data.python.childImageSharp.fluid}
+			title={intl.formatMessage({ id: "project_tmpmail_ttl" })}
+			image={data.python.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_tmpmail_desc" })} />,
 		<Project
 			key={3}
 			link="https://github.com/meashishsaini/captcha-solver"
-			title={intl.formatMessage({ id: "project_captcha_solver_ttl" })} image={data.captchaSolver.childImageSharp.fluid}
+			title={intl.formatMessage({ id: "project_captcha_solver_ttl" })}
+			image={data.captchaSolver.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_captcha_solver_desc" })} />,
 		<Project
 			key={4}
 			link="https://github.com/meashishsaini/bsnl"
-			title={intl.formatMessage({ id: "project_bsnl_scripts_ttl" })} image={data.python.childImageSharp.fluid}
+			title={intl.formatMessage({ id: "project_bsnl_scripts_ttl" })}
+			image={data.python.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_bsnl_scripts_desc" })} />,
 		<Project
 			key={5}
 			link="https://github.com/meashishsaini/ignou-datesheet-extract"
-			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })} image={data.python.childImageSharp.fluid}
+			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })}
+			image={data.python.childImageSharp.fluid}
 			description={intl.formatMessage({ id: "project_ignou_dst_ext_desc" })} />
 	];
 	const showMessage = showAll ? intl.formatMessage({ id: "show_less" }) : intl.formatMessage({ id: "show_all" });
@@ -139,7 +143,7 @@ const Projects = ({ wholePage }) => {
 				projects.slice(2, projects.length)
 			}
 			{!wholePage &&
-				/* Render a link during SSR else render link.*/
+				/* Render a link during SSR else render button.*/
 				(isClient ?
 					<Button
 						onClick={() => {
