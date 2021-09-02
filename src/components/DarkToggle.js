@@ -2,7 +2,7 @@ import React from "react";
 import useSound from "use-sound";
 
 import { ThemeContext } from "./ThemeContext";
-import { SoundContext } from "./SoundContext";
+import { useSoundEffect } from "./SoundEffectHook";
 import light_on from "../sounds/light_on.mp3";
 import light_off from "../sounds/light_off.mp3";
 import SwitchToggle from "./ToggleSwitch";
@@ -43,7 +43,7 @@ const DarkSVG = props => {
 
 const DarkToggle = () => {
 	const { colorMode, setColorMode } = React.useContext(ThemeContext);
-	const { soundEffect } = React.useContext(SoundContext);
+	const { soundEffect } = useSoundEffect();
 	const [lightOn] = useSound(light_on);
 	const [lightOff] = useSound(light_off);
 

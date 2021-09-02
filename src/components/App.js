@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { ThemeProvider } from "./ThemeContext";
-import { SoundProvider } from "./SoundContext";
+import { SoundEffectProvider } from "./SoundEffectHook";
 import GlobalStyles from "./GlobalStyles";
 
 const App = ({ children }) => {
 	return (
 		<ThemeProvider>
-			<SoundProvider>
+			<SoundEffectProvider>
 				<GlobalStyles />
 				{children}
-			</SoundProvider>
+			</SoundEffectProvider>
 		</ThemeProvider>
 	);
 };

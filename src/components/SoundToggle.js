@@ -1,7 +1,7 @@
 import React from "react";
 import useSound from "use-sound";
 
-import { SoundContext } from "./SoundContext";
+import { useSoundEffect } from "./SoundEffectHook";
 import sound_on from "../sounds/sound_on.mp3";
 import sound_off from "../sounds/sound_off.mp3";
 import ToggleSwitch from "./ToggleSwitch";
@@ -39,7 +39,7 @@ const SoundOffSVG = props => {
 	);
 };
 const SoundToggle = () => {
-	const { soundEffect, setSoundEffect } = React.useContext(SoundContext);
+	const { soundEffect, setSoundEffect } = useSoundEffect();
 	const [soundOn] = useSound(sound_on);
 	const [soundOff] = useSound(sound_off);
 
