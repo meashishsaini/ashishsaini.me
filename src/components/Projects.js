@@ -7,6 +7,7 @@ import useSound from "use-sound";
 import { useIntl, Link } from "gatsby-plugin-intl";
 
 import click_sound from "../sounds/click.mp3";
+import { useSoundEffect } from "./SoundEffectHook";
 
 const Project = ({ title, image, description, link }) => {
 	return (
@@ -72,6 +73,7 @@ export const fluidImage = graphql`
 const Projects = ({ wholePage }) => {
 	const [showAll, setShowAll] = React.useState(false);
 	const [click] = useSound(click_sound);
+	const { soundEffect } = useSoundEffect();
 	const intl = useIntl();
 	const [isClient, setClient] = React.useState(false);
 
@@ -157,7 +159,7 @@ const Projects = ({ wholePage }) => {
 				(isClient ? (
 					<Button
 						onClick={() => {
-							click();
+							if (soundEffect === "on") click();
 							setShowAll(showAll => !showAll);
 						}}
 					>
