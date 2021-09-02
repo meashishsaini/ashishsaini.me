@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
 						<div>
 							{intl.formatMessage({ id: "visiting_thanks" })}
 						</div>
-						<div>{intl.formatMessage({ id: "made_in_india" })}</div>
 					</footer>
 				</Wrapper>
 			</FullViewPort>
