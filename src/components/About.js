@@ -36,6 +36,7 @@ const DescriptionArticle = styled.article`
 	margin: 16px 0;
 	font-size: 1em;
 	line-height: 1.5rem;
+	text-align: justify;
 `;
 
 const AboutSection = styled.section`
