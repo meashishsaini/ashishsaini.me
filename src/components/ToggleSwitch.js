@@ -3,10 +3,10 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const SwitchToggle = ({ LeftSVG, RightSVG, onChange, checked, label, id }) => {
-
 	return (
 		<InputStyled className="ic-Super-toggle--on-off">
-			<input id={id}
+			<input
+				id={id}
 				type="checkbox"
 				checked={checked}
 				className="ic-Super-toggle__input"
@@ -15,9 +15,7 @@ const SwitchToggle = ({ LeftSVG, RightSVG, onChange, checked, label, id }) => {
 				}}
 			/>
 			<label className="ic-Super-toggle__label" htmlFor={id}>
-				<div className="ic-Super-toggle__screenreader">
-					{label}
-				</div>
+				<div className="ic-Super-toggle__screenreader">{label}</div>
 				<div
 					className="ic-Super-toggle__disabled-msg"
 					data-checked="On"
@@ -25,7 +23,10 @@ const SwitchToggle = ({ LeftSVG, RightSVG, onChange, checked, label, id }) => {
 					aria-hidden="true"
 				></div>
 				<div className="ic-Super-toggle-switch" aria-hidden="true">
-					<div className="ic-Super-toggle-option-LEFT" aria-hidden="true">
+					<div
+						className="ic-Super-toggle-option-LEFT"
+						aria-hidden="true"
+					>
 						<LeftSVG className="ic-Super-toggle__svg" />
 					</div>
 					<div
@@ -34,9 +35,9 @@ const SwitchToggle = ({ LeftSVG, RightSVG, onChange, checked, label, id }) => {
 					>
 						<RightSVG className="ic-Super-toggle__svg" />
 					</div>
-				</div >
+				</div>
 			</label>
-		</InputStyled >
+		</InputStyled>
 	);
 };
 
@@ -70,7 +71,8 @@ const InputStyled = styled.div`
 		.ic-Super-toggle__disabled-msg {
 			display: block;
 		}
-		.ic-Super-toggle-switch,  [class^="ic-Super-toggle-option-"]{
+		.ic-Super-toggle-switch,
+		[class^="ic-Super-toggle-option-"] {
 			display: none;
 		}
 	}
@@ -136,21 +138,23 @@ const InputStyled = styled.div`
 		position: relative;
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle__input:focus ~ label
-	.ic-Super-toggle-switch::after {
-		box-shadow: inset 0 0 0 1px white, inset 0 0 0 3px var(--color-gray300), 0 3px 6px rgba(0, 0, 0, 0.3);
+		.ic-Super-toggle__input:focus
+		~ label
+		.ic-Super-toggle-switch::after {
+		box-shadow: inset 0 0 0 1px white, inset 0 0 0 3px var(--color-gray300),
+			0 3px 6px rgba(0, 0, 0, 0.3);
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle__input:checked
-	~ label
-	.ic-Super-toggle-switch {
+		.ic-Super-toggle__input:checked
+		~ label
+		.ic-Super-toggle-switch {
 		background: var(--color-gray700);
 		border-color: var(--color-gray700);
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle__input:checked
-	~ label
-	.ic-Super-toggle-option-LEFT {
+		.ic-Super-toggle__input:checked
+		~ label
+		.ic-Super-toggle-option-LEFT {
 		color: white;
 		opacity: 1;
 		.ic-Super-toggle__svg {
@@ -159,21 +163,22 @@ const InputStyled = styled.div`
 	}
 
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle__input:checked
-	~ label
-	.ic-Super-toggle-option-RIGHT {
+		.ic-Super-toggle__input:checked
+		~ label
+		.ic-Super-toggle-option-RIGHT {
 		color: white;
 		opacity: 0;
 		.ic-Super-toggle__svg {
-		fill: white;
-	}
+			fill: white;
+		}
 	}
 
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle__input:checked:focus
-	~ label
-	.ic-Super-toggle-switch::after {
-		box-shadow: inset 0 0 0 1px white, inset 0 0 0 3px var(--color-gray300), 0 3px 6px rgba(0, 0, 0, 0.3);
+		.ic-Super-toggle__input:checked:focus
+		~ label
+		.ic-Super-toggle-switch::after {
+		box-shadow: inset 0 0 0 1px white, inset 0 0 0 3px var(--color-gray300),
+			0 3px 6px rgba(0, 0, 0, 0.3);
 	}
 	&.ic-Super-toggle--on-off .ic-Super-toggle-switch {
 		width: 3em;
@@ -192,22 +197,22 @@ const InputStyled = styled.div`
 		color: white;
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle-option-LEFT
-	.ic-Super-toggle__svg {
+		.ic-Super-toggle-option-LEFT
+		.ic-Super-toggle__svg {
 		fill: white;
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle-option-RIGHT
-	.ic-Super-toggle__svg {
+		.ic-Super-toggle-option-RIGHT
+		.ic-Super-toggle__svg {
 		color: white;
 	}
 	&.ic-Super-toggle--on-off
-	.ic-Super-toggle-option-RIGHT
-	.ic-Super-toggle__svg {
+		.ic-Super-toggle-option-RIGHT
+		.ic-Super-toggle__svg {
 		fill: white;
 	}
 	&.ic-Super-toggle--on-off .ic-Super-toggle__svg {
-		padding-top:2px;
+		padding-top: 2px;
 		width: 1em;
 		height: 1em;
 	}
@@ -228,6 +233,6 @@ SwitchToggle.propTypes = {
 	checked: PropTypes.bool.isRequired,
 	label: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired,
 };
 export default SwitchToggle;

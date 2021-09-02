@@ -15,8 +15,12 @@ const About = () => {
 			<div className="name-avatar-container">
 				<Avatar />
 				<div className="name-container">
-					<h1 className="title">{intl.formatMessage({ id: "name" })}</h1>
-					<h2 className="subtitle">{intl.formatMessage({ id: "subtitle" })}</h2>
+					<h1 className="title">
+						{intl.formatMessage({ id: "name" })}
+					</h1>
+					<h2 className="subtitle">
+						{intl.formatMessage({ id: "subtitle" })}
+					</h2>
 				</div>
 			</div>
 			<DescriptionArticle>
@@ -26,7 +30,6 @@ const About = () => {
 			<Leafs />
 		</AboutSection>
 	);
-
 };
 
 const DescriptionArticle = styled.article`

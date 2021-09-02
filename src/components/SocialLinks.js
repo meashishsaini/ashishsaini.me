@@ -6,7 +6,7 @@ const Social = {
 	twitter: "https://www.twitter.com/meAshishSaini",
 	github: "https://www.github.com/meAshishSaini",
 	linkedin: "https://www.linkedin.com/in/meAshishSaini",
-	"yo@ashishsaini.me": "mailto:yo@ashishsaini.me"
+	"yo@ashishsaini.me": "mailto:yo@ashishsaini.me",
 };
 
 const SocialLinks = () => {
@@ -15,19 +15,12 @@ const SocialLinks = () => {
 
 	for (let key in Social) {
 		links.push(
-			<a
-				key={key}
-				target="_blank"
-				rel="noreferrer"
-				href={Social[key]}>
+			<a key={key} target="_blank" rel="noreferrer" href={Social[key]}>
 				{intl.formatMessage({ id: key })}
-			</a>);
+			</a>
+		);
 	}
-	return (
-		<Wrapper>
-			{links}
-		</Wrapper>
-	);
+	return <Wrapper>{links}</Wrapper>;
 };
 
 const Wrapper = styled.div`
@@ -42,6 +35,5 @@ const Wrapper = styled.div`
 	a {
 		padding: 8px;
 	}
-
 `;
 export default SocialLinks;

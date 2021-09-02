@@ -5,7 +5,11 @@
 		"es6": true,
 		"node": true
 	},
-	"extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"prettier"
+	],
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
@@ -16,8 +20,17 @@
 		"allowImportExportEverywhere": true
 	},
 	"rules": {
-		"indent": ["error", "tab"],
-		"linebreak-style": ["error", "windows"],
-		"semi": ["error", "always"]
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"semi": [
+			"error",
+			"always"
+		]
 	}
 }

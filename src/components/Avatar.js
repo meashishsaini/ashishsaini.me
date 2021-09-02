@@ -8,9 +8,7 @@ const Avatar = () => {
 	const intl = useIntl();
 	const data = useStaticQuery(graphql`
 		query {
-			placeholderImage: file(
-				relativePath: { eq: "avatar.jpg" }
-			) {
+			placeholderImage: file(relativePath: { eq: "avatar.jpg" }) {
 				childImageSharp {
 					fluid(maxWidth: 300) {
 						...GatsbyImageSharpFluid
@@ -24,7 +22,12 @@ const Avatar = () => {
 		return <div>Picture not found</div>;
 	}
 
-	return <StyledImg alt={intl.formatMessage({ id: "avatar_alt" })} fluid={data.placeholderImage.childImageSharp.fluid} />;
+	return (
+		<StyledImg
+			alt={intl.formatMessage({ id: "avatar_alt" })}
+			fluid={data.placeholderImage.childImageSharp.fluid}
+		/>
+	);
 };
 
 const StyledImg = styled(Img)`

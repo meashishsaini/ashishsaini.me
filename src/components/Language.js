@@ -2,7 +2,7 @@ import React from "react";
 import { IntlContextConsumer, Link } from "gatsby-plugin-intl";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Location } from '@reach/router';
+import { Location } from "@reach/router";
 
 const languageName = {
 	en: "English",
@@ -15,23 +15,30 @@ const Language = () => {
 	return (
 		<div>
 			<Location>
-				{({ location }) =>
+				{({ location }) => (
 					<IntlContextConsumer>
 						{({ languages, language: currentLocale }) =>
-							languages.map(language => (
-								(currentLocale !== language &&
-									<StyledLink
-										key={language}
-										language={language}
-										lang={language}
-										to={`${location.pathname.replace(new RegExp(`^/(${supportedLocaleRegexGroups})`), ``)}`}
-									>
-										{languageName[language]}
-									</StyledLink>)
-							))
+							languages.map(
+								language =>
+									currentLocale !== language && (
+										<StyledLink
+											key={language}
+											language={language}
+											lang={language}
+											to={`${location.pathname.replace(
+												new RegExp(
+													`^/(${supportedLocaleRegexGroups})`
+												),
+												``
+											)}`}
+										>
+											{languageName[language]}
+										</StyledLink>
+									)
+							)
 						}
 					</IntlContextConsumer>
-				}
+				)}
 			</Location>
 		</div>
 	);
@@ -42,7 +49,7 @@ const StyledLink = styled(Link)`
 `;
 
 Language.propTypes = {
-	location: PropTypes.object
+	location: PropTypes.object,
 };
 
 export default Language;

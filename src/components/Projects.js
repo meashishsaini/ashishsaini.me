@@ -10,19 +10,12 @@ import click_sound from "../sounds/click.mp3";
 
 const Project = ({ title, image, description, link }) => {
 	return (
-		<AnchorStyle
-			href={link}
-			target="_blank"
-			rel="noreferrer">
+		<AnchorStyle href={link} target="_blank" rel="noreferrer">
 			<ProjectStyle>
 				<StyledImg fluid={image} />
 				<div className="project-details-container">
-					<div className="title">
-						{title}
-					</div>
-					<div className="description">
-						{description}
-					</div>
+					<div className="title">{title}</div>
+					<div className="description">{description}</div>
 				</div>
 			</ProjectStyle>
 		</AnchorStyle>
@@ -50,11 +43,11 @@ const ProjectStyle = styled.div`
 		margin: 8px;
 		overflow: auto;
 	}
-	.title{
+	.title {
 		margin: 8px 0;
 		color: var(--color-text);
 	}
-	.description{
+	.description {
 		font-size: 0.8em;
 		color: var(--color-gray700);
 	}
@@ -64,17 +57,17 @@ Project.propTypes = {
 	title: PropTypes.string.isRequired,
 	image: PropTypes.any.isRequired,
 	description: PropTypes.string.isRequired,
-	link: PropTypes.string.isRequired
+	link: PropTypes.string.isRequired,
 };
 
 export const fluidImage = graphql`
-fragment fluidImage on File {
-	childImageSharp {
-		fluid(maxWidth: 100) {
-			...GatsbyImageSharpFluid
+	fragment fluidImage on File {
+		childImageSharp {
+			fluid(maxWidth: 100) {
+				...GatsbyImageSharpFluid
+			}
 		}
 	}
-}
 `;
 const Projects = ({ wholePage }) => {
 	const [showAll, setShowAll] = React.useState(false);
@@ -86,13 +79,17 @@ const Projects = ({ wholePage }) => {
 
 	const data = useStaticQuery(graphql`
 		{
-			ignouDateSheetImage: file(relativePath: {eq: "projects/ignou.jpg"}) {
+			ignouDateSheetImage: file(
+				relativePath: { eq: "projects/ignou.jpg" }
+			) {
 				...fluidImage
 			}
-			captchaSolver: file(relativePath: {eq: "projects/captcha-solver.jpg"}) {
+			captchaSolver: file(
+				relativePath: { eq: "projects/captcha-solver.jpg" }
+			) {
 				...fluidImage
 			}
-			python: file(relativePath: {eq: "projects/python.png"}) {
+			python: file(relativePath: { eq: "projects/python.png" }) {
 				...fluidImage
 			}
 		}
@@ -103,33 +100,48 @@ const Projects = ({ wholePage }) => {
 			link="https://gc.ashishsaini.me/projects/ignou-datesheet/index.html"
 			title={intl.formatMessage({ id: "project_ignou_datesheet_ttl" })}
 			image={data.ignouDateSheetImage.childImageSharp.fluid}
-			description={intl.formatMessage({ id: "project_ignou_datesheet_desc" })} />,
+			description={intl.formatMessage({
+				id: "project_ignou_datesheet_desc",
+			})}
+		/>,
 		<Project
 			key={2}
 			link="https://github.com/meashishsaini/tmpmail-python"
 			title={intl.formatMessage({ id: "project_tmpmail_ttl" })}
 			image={data.python.childImageSharp.fluid}
-			description={intl.formatMessage({ id: "project_tmpmail_desc" })} />,
+			description={intl.formatMessage({ id: "project_tmpmail_desc" })}
+		/>,
 		<Project
 			key={3}
 			link="https://github.com/meashishsaini/captcha-solver"
 			title={intl.formatMessage({ id: "project_captcha_solver_ttl" })}
 			image={data.captchaSolver.childImageSharp.fluid}
-			description={intl.formatMessage({ id: "project_captcha_solver_desc" })} />,
+			description={intl.formatMessage({
+				id: "project_captcha_solver_desc",
+			})}
+		/>,
 		<Project
 			key={4}
 			link="https://github.com/meashishsaini/bsnl"
 			title={intl.formatMessage({ id: "project_bsnl_scripts_ttl" })}
 			image={data.python.childImageSharp.fluid}
-			description={intl.formatMessage({ id: "project_bsnl_scripts_desc" })} />,
+			description={intl.formatMessage({
+				id: "project_bsnl_scripts_desc",
+			})}
+		/>,
 		<Project
 			key={5}
 			link="https://github.com/meashishsaini/ignou-datesheet-extract"
 			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })}
 			image={data.python.childImageSharp.fluid}
-			description={intl.formatMessage({ id: "project_ignou_dst_ext_desc" })} />
+			description={intl.formatMessage({
+				id: "project_ignou_dst_ext_desc",
+			})}
+		/>,
 	];
-	const showMessage = showAll ? intl.formatMessage({ id: "show_less" }) : intl.formatMessage({ id: "show_all" });
+	const showMessage = showAll
+		? intl.formatMessage({ id: "show_less" })
+		: intl.formatMessage({ id: "show_all" });
 
 	return (
 		<section>
@@ -139,32 +151,29 @@ const Projects = ({ wholePage }) => {
 			</article>
 			{/* Show only two projects by default. */}
 			{projects.slice(0, 2)}
-			{(showAll || wholePage) &&
-				projects.slice(2, projects.length)
-			}
+			{(showAll || wholePage) && projects.slice(2, projects.length)}
 			{!wholePage &&
 				/* Render a link during SSR else render button.*/
-				(isClient ?
+				(isClient ? (
 					<Button
 						onClick={() => {
 							click();
-							setShowAll((showAll) => !showAll);
-						}}>
+							setShowAll(showAll => !showAll);
+						}}
+					>
 						{showMessage}
 					</Button>
-					:
-					<Link to="/projects">
-						{showMessage}
-					</Link>)
-			}
+				) : (
+					<Link to="/projects">{showMessage}</Link>
+				))}
 		</section>
 	);
 };
 
 const Button = styled.button`
-	background: var(--color-background)!important;
+	background: var(--color-background) !important;
 	border: none;
-	padding: 0!important;
+	padding: 0 !important;
 	text-decoration: underline;
 	cursor: pointer;
 	color: var(--color-secondary);
@@ -172,11 +181,11 @@ const Button = styled.button`
 `;
 
 Projects.defaultProps = {
-	wholePage: false
+	wholePage: false,
 };
 
 Projects.propTypes = {
-	wholePage: PropTypes.bool
+	wholePage: PropTypes.bool,
 };
 
 export default Projects;

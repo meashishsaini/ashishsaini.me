@@ -7,7 +7,7 @@ import light_on from "../sounds/light_on.mp3";
 import light_off from "../sounds/light_off.mp3";
 import SwitchToggle from "./ToggleSwitch";
 
-const LightSVG = (props) => {
+const LightSVG = props => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const LightSVG = (props) => {
 	);
 };
 
-const DarkSVG = (props) => {
+const DarkSVG = props => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +60,8 @@ const DarkToggle = () => {
 			onChange={ev => {
 				const checked = ev.target.checked;
 				if (soundEffect === "on")
-					if (checked)
-						lightOn();
-					else
-						lightOff();
+					if (checked) lightOn();
+					else lightOff();
 				setColorMode(checked ? "dark" : "light");
 			}}
 			label={"Enable Dark Mode"}

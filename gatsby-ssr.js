@@ -73,7 +73,7 @@ const FallbackStyles = () => {
 		(acc, [name, colorByTheme]) => {
 			return `${acc}\n--color-${name}: ${colorByTheme.light};`;
 		},
-		''
+		""
 	);
 
 	const wrappedInSelector = `html { ${cssVariableString} }`;

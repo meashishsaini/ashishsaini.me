@@ -14,9 +14,7 @@ module.exports = {
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
 				// exclude: ["/en/*", "/en/", "/hi/*", "/hi/"],
-				exclude: [
-					"/*/offline-plugin-app-shell-fallback/",
-					"/*/404*"],
+				exclude: ["/*/offline-plugin-app-shell-fallback/", "/*/404*"],
 				query: `
 				{
 					site {
@@ -31,23 +29,40 @@ module.exports = {
 					}
 				}
 				`,
-				serialize: ({ site, allSitePage }) => allSitePage.nodes
-					.map(node => {
+				serialize: ({ site, allSitePage }) =>
+					allSitePage.nodes.map(node => {
 						return {
 							url: `${site.siteMetadata.siteUrl}${node.path}`,
-							changefreq: 'daily',
+							changefreq: "daily",
 							priority: 0.7,
-							links: supportedLanguages.map(language => {
-								return { lang: language, url: `${site.siteMetadata.siteUrl}/${language}${node.path.replace(matchLocaleRegex, ``)}` };
-							}).concat({ lang: 'x-default', url: `${site.siteMetadata.siteUrl}${node.path.replace(matchLocaleRegex, ``)}` })
+							links: supportedLanguages
+								.map(language => {
+									return {
+										lang: language,
+										url: `${
+											site.siteMetadata.siteUrl
+										}/${language}${node.path.replace(
+											matchLocaleRegex,
+											``
+										)}`,
+									};
+								})
+								.concat({
+									lang: "x-default",
+									url: `${
+										site.siteMetadata.siteUrl
+									}${node.path.replace(
+										matchLocaleRegex,
+										``
+									)}`,
+								}),
 						};
-					})
-			}
+					}),
+			},
 		},
 		{
 			resolve: `gatsby-plugin-styled-components`,
-			options: {
-			}
+			options: {},
 		},
 		`gatsby-plugin-react-helmet`,
 		{

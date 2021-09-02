@@ -31,5 +31,5 @@ export const SoundProvider = ({ children }) => {
 };
 
 SoundProvider.propTypes = {
-	children: PropTypes.array.isRequired
+	children: PropTypes.array.isRequired,
 };

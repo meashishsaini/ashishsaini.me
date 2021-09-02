@@ -22,14 +22,17 @@ const Layout = ({ children }) => {
 		<>
 			<FullViewPort>
 				<Wrapper>
-					<Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+					<Header
+						siteTitle={data.site.siteMetadata?.title || `Title`}
+					/>
 					<main>{children}</main>
 					<footer>
-						<div>{intl.formatMessage({ id: "visiting_thanks" })}</div>
+						<div>
+							{intl.formatMessage({ id: "visiting_thanks" })}
+						</div>
 						<div>{intl.formatMessage({ id: "made_in_india" })}</div>
 					</footer>
-
-				</Wrapper >
+				</Wrapper>
 			</FullViewPort>
 		</>
 	);
@@ -39,15 +42,14 @@ const FullViewPort = styled.div`
 `;
 const Wrapper = styled.div`
 	display: flex;
-	height:100%;
-	min-height:40rem;
+	height: 100%;
+	min-height: 40rem;
 	flex-direction: column;
 	padding: 0px 16px 0px;
 	main {
 		flex: 1 0 auto;
 		margin: 0 auto;
 		max-width: 36rem;
-		
 	}
 	footer {
 		flex-shrink: 0;

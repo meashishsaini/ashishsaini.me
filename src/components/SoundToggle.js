@@ -6,7 +6,7 @@ import sound_on from "../sounds/sound_on.mp3";
 import sound_off from "../sounds/sound_off.mp3";
 import ToggleSwitch from "./ToggleSwitch";
 
-const SoundOnSVG = (props) => {
+const SoundOnSVG = props => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ const SoundOnSVG = (props) => {
 		</svg>
 	);
 };
-const SoundOffSVG = (props) => {
+const SoundOffSVG = props => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -55,10 +55,8 @@ const SoundToggle = () => {
 			checked={soundEffect === "on"}
 			onChange={ev => {
 				let checked = ev.target.checked;
-				if (checked)
-					soundOn();
-				else
-					soundOff();
+				if (checked) soundOn();
+				else soundOff();
 				setSoundEffect(checked ? "on" : "off");
 			}}
 			label="Turn sound on or off."
