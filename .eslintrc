@@ -8,7 +8,7 @@
 	"extends": [
 		"eslint:recommended",
 		"plugin:react/recommended",
-		"prettier"
+		"plugin:prettier/recommended"
 	],
 	"globals": {
 		"Atomics": "readonly",
@@ -20,17 +20,7 @@
 		"allowImportExportEverywhere": true
 	},
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"semi": [
-			"error",
-			"always"
-		]
+		"indent": ["error", "tab"],
+		"semi": ["error", "always"]
 	}
 }
