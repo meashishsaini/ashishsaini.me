@@ -21,20 +21,24 @@ const Avatar = () => {
 	`);
 
 	return (
-		<StyledImg
-			alt={intl.formatMessage({ id: "avatar_alt" })}
-			image={getImage(data.avatar)}
-			loading={"lazy"}
-		/>
+		<Wrapper>
+			<StyledImg
+				alt={intl.formatMessage({ id: "avatar_alt" })}
+				image={getImage(data.avatar)}
+				loading={"lazy"}
+			/>
+		</Wrapper>
 	);
 };
 
+const Wrapper = styled.div`
+	display: flex;
+	justify-content: center;
+`;
 const StyledImg = styled(GatsbyImage)`
 	border-radius: 50%;
 	width: 16rem;
 	height: 16rem;
-	margin: 0 auto;
-	display: block;
 `;
 
 export default Avatar;
