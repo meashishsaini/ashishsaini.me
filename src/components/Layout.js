@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
-import { useIntl } from "gatsby-plugin-intl";
+import { useIntl } from "gatsby-plugin-react-intl";
 
 import Header from "./Header";
 

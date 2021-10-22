@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useIntl } from "gatsby-plugin-intl";
+import { useIntl } from "gatsby-plugin-react-intl";
 
 const Social = {
 	twitter: "https://www.twitter.com/meAshishSaini",

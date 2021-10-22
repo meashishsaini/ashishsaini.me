@@ -1,36 +1,34 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import { useIntl } from "gatsby-plugin-intl";
+import { useIntl } from "gatsby-plugin-react-intl";
 
 const Avatar = () => {
 	const intl = useIntl();
 	const data = useStaticQuery(graphql`
-		query {
-			placeholderImage: file(relativePath: { eq: "avatar.jpg" }) {
+		{
+			avatar: file(relativePath: { eq: "avatar.jpg" }) {
 				childImageSharp {
-					fluid(maxWidth: 300) {
-						...GatsbyImageSharpFluid
-					}
+					gatsbyImageData(
+						width: 300
+						layout: CONSTRAINED
+						placeholder: BLURRED
+					)
 				}
 			}
 		}
 	`);
 
-	if (!data?.placeholderImage?.childImageSharp?.fluid) {
-		return <div>Picture not found</div>;
-	}
-
 	return (
 		<StyledImg
 			alt={intl.formatMessage({ id: "avatar_alt" })}
-			fluid={data.placeholderImage.childImageSharp.fluid}
+			image={getImage(data.avatar)}
 		/>
 	);
 };
 
-const StyledImg = styled(Img)`
+const StyledImg = styled(GatsbyImage)`
 	border-radius: 50%;
 	width: 16rem;
 	height: 16rem;

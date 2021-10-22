@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import useSound from "use-sound";
-import { useIntl, Link } from "gatsby-plugin-intl";
+import { useIntl, Link } from "gatsby-plugin-react-intl";
 
 import click_sound from "../sounds/click.mp3";
 import { useSoundEffect } from "./SoundEffectHook";
@@ -13,7 +13,7 @@ const Project = ({ title, image, description, link }) => {
 	return (
 		<AnchorStyle href={link} target="_blank" rel="noreferrer">
 			<ProjectStyle>
-				<StyledImg fluid={image} />
+				<StyledImg image={getImage(image)} alt={title} />
 				<div className="project-details-container">
 					<div className="title">{title}</div>
 					<div className="description">{description}</div>
@@ -23,8 +23,8 @@ const Project = ({ title, image, description, link }) => {
 	);
 };
 
-const StyledImg = styled(Img)`
-	min-width: 6rem;
+const StyledImg = styled(GatsbyImage)`
+	max-width: 6rem;
 	min-height: 6rem;
 	border-radius: 8px;
 	margin: 16px;
@@ -64,9 +64,7 @@ Project.propTypes = {
 export const fluidImage = graphql`
 	fragment fluidImage on File {
 		childImageSharp {
-			fluid(maxWidth: 100) {
-				...GatsbyImageSharpFluid
-			}
+			gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
 		}
 	}
 `;
@@ -101,7 +99,7 @@ const Projects = ({ wholePage }) => {
 			key={1}
 			link="https://gc.ashishsaini.me/projects/ignou-datesheet/index.html"
 			title={intl.formatMessage({ id: "project_ignou_datesheet_ttl" })}
-			image={data.ignouDateSheetImage.childImageSharp.fluid}
+			image={data.ignouDateSheetImage}
 			description={intl.formatMessage({
 				id: "project_ignou_datesheet_desc",
 			})}
@@ -110,14 +108,14 @@ const Projects = ({ wholePage }) => {
 			key={2}
 			link="https://github.com/meashishsaini/tmpmail-python"
 			title={intl.formatMessage({ id: "project_tmpmail_ttl" })}
-			image={data.python.childImageSharp.fluid}
+			image={data.python}
 			description={intl.formatMessage({ id: "project_tmpmail_desc" })}
 		/>,
 		<Project
 			key={3}
 			link="https://github.com/meashishsaini/captcha-solver"
 			title={intl.formatMessage({ id: "project_captcha_solver_ttl" })}
-			image={data.captchaSolver.childImageSharp.fluid}
+			image={data.captchaSolver}
 			description={intl.formatMessage({
 				id: "project_captcha_solver_desc",
 			})}
@@ -126,7 +124,7 @@ const Projects = ({ wholePage }) => {
 			key={4}
 			link="https://github.com/meashishsaini/bsnl"
 			title={intl.formatMessage({ id: "project_bsnl_scripts_ttl" })}
-			image={data.python.childImageSharp.fluid}
+			image={data.python}
 			description={intl.formatMessage({
 				id: "project_bsnl_scripts_desc",
 			})}
@@ -135,7 +133,7 @@ const Projects = ({ wholePage }) => {
 			key={5}
 			link="https://github.com/meashishsaini/ignou-datesheet-extract"
 			title={intl.formatMessage({ id: "project_ignou_dst_ext_ttl" })}
-			image={data.python.childImageSharp.fluid}
+			image={data.python}
 			description={intl.formatMessage({
 				id: "project_ignou_dst_ext_desc",
 			})}
