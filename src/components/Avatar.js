@@ -24,6 +24,7 @@ const Avatar = () => {
 		<StyledImg
 			alt={intl.formatMessage({ id: "avatar_alt" })}
 			image={getImage(data.avatar)}
+			loading={"lazy"}
 		/>
 	);
 };
@@ -33,6 +34,7 @@ const StyledImg = styled(GatsbyImage)`
 	width: 16rem;
 	height: 16rem;
 	margin: 0 auto;
+	display: block;
 `;
 
 export default Avatar;
