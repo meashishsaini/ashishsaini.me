@@ -27,8 +27,8 @@ const About = () => {
 			</div>
 			<DescriptionArticle>
 				{intl.formatMessage({
-					defaultMessage: `Hi👋🏽! I am a freelance software developer. 
-						I make things which help solve little problems.`,
+					defaultMessage: `Hi👋🏽! I am a software developer. 
+						I make tiny things solving tiny problems.`,
 				})}
 			</DescriptionArticle>
 			<SocialLinks />
