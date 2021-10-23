@@ -1,0 +1,1 @@
+npm run extract -- 'src/**/*.js' --out-file intl_raw/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'
