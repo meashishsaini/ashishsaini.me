@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useIntl } from "gatsby-plugin-react-intl";
 
 const Social = {
 	twitter: "https://www.twitter.com/meAshishSaini",
@@ -10,17 +9,15 @@ const Social = {
 };
 
 const SocialLinks = () => {
-	const links = [];
-	const intl = useIntl();
-
-	for (let key in Social) {
-		links.push(
-			<a key={key} target="_blank" rel="noreferrer" href={Social[key]}>
-				{intl.formatMessage({ id: key })}
-			</a>
-		);
-	}
-	return <Wrapper>{links}</Wrapper>;
+	return (
+		<Wrapper>
+			{Object.entries(Social).map(([name, link]) => (
+				<a key={name} target="_blank" rel="noreferrer" href={link}>
+					{name}
+				</a>
+			))}
+		</Wrapper>
+	);
 };
 
 const Wrapper = styled.div`

@@ -23,7 +23,9 @@ const Avatar = () => {
 	return (
 		<Wrapper>
 			<StyledImg
-				alt={intl.formatMessage({ id: "avatar_alt" })}
+				alt={intl.formatMessage({
+					defaultMessage: "Profile photo of Ashish Saini.",
+				})}
 				image={getImage(data.avatar)}
 				loading={"lazy"}
 			/>

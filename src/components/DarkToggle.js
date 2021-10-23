@@ -1,5 +1,7 @@
 import React from "react";
+
 import useSound from "use-sound";
+import { useIntl } from "gatsby-plugin-react-intl";
 
 import { ThemeContext } from "./ThemeContext";
 import { useSoundEffect } from "./SoundEffectHook";
@@ -42,6 +44,7 @@ const DarkSVG = props => {
 };
 
 const DarkToggle = () => {
+	const intl = useIntl();
 	const { colorMode, setColorMode } = React.useContext(ThemeContext);
 	const { soundEffect } = useSoundEffect();
 	const [lightOn] = useSound(light_on);
@@ -64,7 +67,7 @@ const DarkToggle = () => {
 					else lightOff();
 				setColorMode(checked ? "dark" : "light");
 			}}
-			label={"Enable Dark Mode"}
+			label={intl.formatMessage({ defaultMessage: "Enable Dark Mode" })}
 		/>
 	);
 };

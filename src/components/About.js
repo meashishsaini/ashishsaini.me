@@ -16,15 +16,20 @@ const About = () => {
 				<Avatar />
 				<div className="name-container">
 					<h1 className="title">
-						{intl.formatMessage({ id: "name" })}
+						{intl.formatMessage({ defaultMessage: "Ashish Saini" })}
 					</h1>
 					<h2 className="subtitle">
-						{intl.formatMessage({ id: "subtitle" })}
+						{intl.formatMessage({
+							defaultMessage: "Software Developer",
+						})}
 					</h2>
 				</div>
 			</div>
 			<DescriptionArticle>
-				{intl.formatMessage({ id: "description" })}
+				{intl.formatMessage({
+					defaultMessage: `Hi👋🏽! I am a freelance software developer. 
+						I make things which help solve little problems.`,
+				})}
 			</DescriptionArticle>
 			<SocialLinks />
 			<Leafs />

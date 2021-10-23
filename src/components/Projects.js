@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import useSound from "use-sound";
-import { useIntl, Link } from "gatsby-plugin-react-intl";
+// eslint-disable-next-line no-unused-vars
+import { useIntl, Link, IntlShape } from "gatsby-plugin-react-intl";
 
 import click_sound from "../sounds/click.mp3";
 import { useSoundEffect } from "./SoundEffectHook";
@@ -17,49 +18,63 @@ export const fluidImage = graphql`
 	}
 `;
 
+/**
+ * @description Get projects
+ * @param {IntlShape} intl
+ * @returns
+ */
 const getProjects = intl => {
 	return [
 		{
 			id: "ignou_datesheet",
 			link: "https://gc.ashishsaini.me/projects/ignou-datesheet/index.html",
-			title: intl.formatMessage({ id: "project_ignou_datesheet_ttl" }),
+			title: intl.formatMessage({ defaultMessage: "IGNOU Date-sheet" }),
 			image: "ignou.jpg",
 			description: intl.formatMessage({
-				id: "project_ignou_datesheet_desc",
+				defaultMessage: `You can download date-sheet for your programme or individual courses. 
+				No need to download full date-sheet and searching for your subjects.`,
 			}),
 		},
 		{
 			id: "tmpmail",
 			link: "https://github.com/meashishsaini/tmpmail-python",
-			title: intl.formatMessage({ id: "project_tmpmail_ttl" }),
+			title: intl.formatMessage({ defaultMessage: "tmpmail" }),
 			image: "python.png",
-			description: intl.formatMessage({ id: "project_tmpmail_desc" }),
+			description: intl.formatMessage({
+				defaultMessage:
+					"Create and view temporary mailbox using 1secmail API.",
+			}),
 		},
 		{
 			id: "captcha",
 			link: "https://github.com/meashishsaini/captcha-solver",
-			title: intl.formatMessage({ id: "project_captcha_solver_ttl" }),
+			title: intl.formatMessage({ defaultMessage: "Captcha Solver" }),
 			image: "captcha-solver.jpg",
 			description: intl.formatMessage({
-				id: "project_captcha_solver_desc",
+				defaultMessage:
+					"Train and solve captchas of UP Scholarship website using tensorflow.",
 			}),
 		},
 		{
 			id: "bsnl",
 			link: "https://github.com/meashishsaini/bsnl",
-			title: intl.formatMessage({ id: "project_bsnl_scripts_ttl" }),
+			title: intl.formatMessage({ defaultMessage: "BSNL Scripts" }),
 			image: "python.png",
 			description: intl.formatMessage({
-				id: "project_bsnl_scripts_desc",
+				defaultMessage:
+					"Collection of scripts for BSNL broadband connection.",
 			}),
 		},
 		{
 			id: "datesheet_extract",
 			link: "https://github.com/meashishsaini/ignou-datesheet-extract",
-			title: intl.formatMessage({ id: "project_ignou_dst_ext_ttl" }),
+			title: intl.formatMessage({
+				defaultMessage: "IGNOU date-sheet extractor",
+			}),
 			image: "python.png",
 			description: intl.formatMessage({
-				id: "project_ignou_dst_ext_desc",
+				defaultMessage:
+					"Extract the date-sheet from pdf provided by IGNOU in a json file.",
 			}),
 		},
 	];
@@ -108,14 +123,17 @@ const Projects = ({ wholePage }) => {
 	`);
 
 	const showMessage = showAll
-		? intl.formatMessage({ id: "show_less" })
-		: intl.formatMessage({ id: "show_all" });
+		? intl.formatMessage({ defaultMessage: "Show less ←" })
+		: intl.formatMessage({ defaultMessage: "View all →" });
 
 	return (
 		<section>
-			<h1>{intl.formatMessage({ id: "projects" })}</h1>
+			<h1>{intl.formatMessage({ defaultMessage: "Projects" })}</h1>
 			<article>
-				{intl.formatMessage({ id: "projects_introduction" })}
+				{intl.formatMessage({
+					defaultMessage:
+						"Here are the projects I have worked on and/or currently working on ✌🏽:",
+				})}
 			</article>
 			{/* Show only two projects by default. */}
 			{projects

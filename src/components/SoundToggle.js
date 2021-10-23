@@ -1,5 +1,7 @@
 import React from "react";
+
 import useSound from "use-sound";
+import { useIntl } from "gatsby-plugin-react-intl";
 
 import { useSoundEffect } from "./SoundEffectHook";
 import sound_on from "../sounds/sound_on.mp3";
@@ -39,6 +41,7 @@ const SoundOffSVG = props => {
 	);
 };
 const SoundToggle = () => {
+	const intl = useIntl();
 	const { soundEffect, setSoundEffect } = useSoundEffect();
 	const [soundOn] = useSound(sound_on);
 	const [soundOff] = useSound(sound_off);
@@ -59,7 +62,9 @@ const SoundToggle = () => {
 				else soundOff();
 				setSoundEffect(checked ? "on" : "off");
 			}}
-			label="Turn sound on or off."
+			label={intl.formatMessage({
+				defaultMessage: "Turn sound on or off.",
+			})}
 		/>
 	);
 };

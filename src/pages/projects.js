@@ -9,10 +9,7 @@ const ProjectsPage = () => {
 	const intl = useIntl();
 	return (
 		<Layout>
-			<SEO
-				title={intl.formatMessage({ id: "projects" })}
-				lang={intl.locale}
-			/>
+			<SEO title={intl.formatMessage({ defaultMessage: "Projects" })} />
 			<Projects wholePage={true} />
 		</Layout>
 	);

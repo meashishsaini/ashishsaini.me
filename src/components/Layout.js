@@ -1,34 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
 import { useIntl } from "gatsby-plugin-react-intl";
 
 import Header from "./Header";
 
 const Layout = ({ children }) => {
 	const intl = useIntl();
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`);
 
 	return (
 		<>
 			<FullViewPort>
 				<Wrapper>
-					<Header
-						siteTitle={data.site.siteMetadata?.title || `Title`}
-					/>
+					<Header />
 					<main>{children}</main>
 					<footer>
 						<div>
-							{intl.formatMessage({ id: "visiting_thanks" })}
+							{intl.formatMessage({
+								defaultMessage: "Thanks for visiting ❤️.",
+							})}
 						</div>
 					</footer>
 				</Wrapper>
