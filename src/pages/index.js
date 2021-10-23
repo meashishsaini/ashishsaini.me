@@ -11,13 +11,12 @@ const IndexPage = () => {
 	return (
 		<Layout>
 			<SEO
-				title="Home"
-				lang={intl.locale}
-				image={{
-					src: "/background/Mataura.png",
-					height: 3200,
-					width: 2400,
-				}}
+				title={intl.formatMessage({ defaultMessage: "Ashish Saini" })}
+				titleTemplate={"%s"}
+				description={intl.formatMessage({
+					defaultMessage:
+						"Personal website of Ashish Saini and his contact info.",
+				})}
 			/>
 			<About />
 			<Projects />

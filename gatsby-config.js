@@ -3,9 +3,12 @@ const { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } = require("./src/languages");
 module.exports = {
 	siteMetadata: {
 		title: `Ashish Saini`,
+		titleTemplate: "%s | Ashish Saini",
 		description: `Personal website of Ashish Saini.`,
-		author: `@meashishsaini`,
+		author: `Ashish Saini`,
+		twitter: `@meashishsaini`,
 		siteUrl: `https://ashishsaini.me`,
+		image: `/background/Mataura.png`,
 	},
 	plugins: [
 		{
