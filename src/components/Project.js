@@ -34,17 +34,21 @@ const ProjectStyle = styled.div`
 	height: 8rem;
 	display: flex;
 	margin: 16px 0px;
+	line-height: 1.2em;
 	.project-details-container {
-		margin: 8px;
-		overflow: auto;
+		margin: 16px;
+		margin-left: 0px;
+		display: flex;
+		flex-direction: column;
 	}
 	.title {
-		margin: 8px 0;
+		margin-bottom: 6px;
 		color: var(--color-text);
 	}
 	.description {
 		font-size: 0.8em;
 		color: var(--color-gray700);
+		overflow: auto;
 	}
 `;
 
