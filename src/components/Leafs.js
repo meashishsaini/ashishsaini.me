@@ -41,8 +41,8 @@ const Leafs = () => {
 
 const StyledSVGLeaf = styled(SVGLeaf)`
 	transform: rotate(90deg);
-	height: 2.2rem;
-	width: 2.2rem;
+	height: 2.5rem;
+	width: 2.5rem;
 	padding: 0px 2px;
 	${mq.desktop} {
 		height: 3rem;
