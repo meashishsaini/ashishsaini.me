@@ -1,26 +1,19 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { useIntl } from "gatsby-plugin-react-intl";
 
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-	const intl = useIntl();
-
 	return (
 		<>
 			<FullViewPort>
 				<Wrapper>
 					<Header />
 					<main>{children}</main>
-					<footer>
-						<div>
-							{intl.formatMessage({
-								defaultMessage: "Thanks for visiting ❤️.",
-							})}
-						</div>
-					</footer>
+					<Footer />
 				</Wrapper>
 			</FullViewPort>
 		</>
@@ -39,12 +32,6 @@ const Wrapper = styled.div`
 		flex: 1 0 auto;
 		margin: 0 auto;
 		max-width: 36rem;
-	}
-	footer {
-		flex-shrink: 0;
-		text-align: center;
-		margin: 16px 0;
-		padding-bottom: 8px;
 	}
 `;
 Layout.propTypes = {
