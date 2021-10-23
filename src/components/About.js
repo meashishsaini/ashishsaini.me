@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 import { useIntl } from "gatsby-plugin-react-intl";
 
@@ -50,12 +51,14 @@ const AboutSection = styled.section`
 		margin: 32px 0;
 		${mq.desktop} {
 			display: flex;
+			justify-content: center;
 		}
 	}
 	.name-container {
 		margin: auto;
 		text-align: center;
 		${mq.desktop} {
+			margin: auto 0px auto 16px;
 			text-align: inherit;
 		}
 	}
