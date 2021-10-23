@@ -8,7 +8,6 @@ import { useIntl } from "gatsby-plugin-react-intl";
 
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
-import Person from "./Schema";
 
 const query = graphql`
 	query {
@@ -58,11 +57,25 @@ const SEO = ({ description, title, titleTemplate, image }) => {
 				<html lang={locale} />
 				<meta name={"description"} content={seo.description} />
 				<meta name={"image"} content={seo.image} />
-				<Person
-					name={seo.author}
-					description={seo.description}
-					siteUrl={seo.url}
-				/>
+				<script type="application/ld+json">
+					{`{
+					"@context": "https://schema.org",
+					"@type": "Person",
+					"name": "${seo.author}",
+					"url": "${seo.url}",
+					"description": "${seo.description}",
+					"jobTitle": "Software Developer",
+					"email": "mailto:hello@ashishsaini.me",
+					"image": "https://ashishsaini.me/avatar.jpg",
+					"sameAs": [
+						"https://www.facebook.com/meAshishSaini",
+						"https://instagram.com/meashishsaini",
+						"https://twitter.com/meashishsaini",
+						"https://www.linkedin.com/in/meashishsaini"
+						]
+					}
+				`}
+				</script>
 			</Helmet>
 			<Facebook
 				desc={seo.description}
