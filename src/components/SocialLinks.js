@@ -1,17 +1,31 @@
 import React from "react";
-import styled from "styled-components";
 
-const Social = {
-	twitter: "https://www.twitter.com/meAshishSaini",
-	github: "https://www.github.com/meAshishSaini",
-	linkedin: "https://www.linkedin.com/in/meAshishSaini",
-	"yo@ashishsaini.me": "mailto:yo@ashishsaini.me",
-};
+import styled from "styled-components";
+// eslint-disable-next-line no-unused-vars
+import { useIntl, IntlShape } from "gatsby-plugin-react-intl";
+
+/**
+ * @description Get social links object
+ * @param {IntlShape} intl
+ * @returns {Object.<string, string>}
+ */
+const social = intl => ({
+	[intl.formatMessage({ defaultMessage: "twitter" })]:
+		"https://www.twitter.com/meAshishSaini",
+	[intl.formatMessage({ defaultMessage: "github" })]:
+		"https://www.github.com/meAshishSaini",
+	[intl.formatMessage({ defaultMessage: "linkedin" })]:
+		"https://www.linkedin.com/in/meAshishSaini",
+	[intl.formatMessage({ defaultMessage: "yo@ashishsaini.me" })]:
+		"mailto:yo@ashishsaini.me",
+});
 
 const SocialLinks = () => {
+	const intl = useIntl();
+
 	return (
 		<Wrapper>
-			{Object.entries(Social).map(([name, link]) => (
+			{Object.entries(social(intl)).map(([name, link]) => (
 				<a key={name} target="_blank" rel="noreferrer" href={link}>
 					{name}
 				</a>
