@@ -12,29 +12,10 @@ const SVGLeaf = props => {
 	);
 };
 
-const Leafathon = ({ combination }) => {
-	if (!combination) {
-		combination = [1, 2, 3];
-	}
-	return (
-		<span>
-			{combination.map(element => (
-				<StyledSVGLeaf key={element} className={"leaf" + element} />
-			))}
-		</span>
-	);
-};
-
-Leafathon.propTypes = {
-	combination: PropTypes.array,
-};
-
-const Leafs = () => {
-	const numberOfLeafathones = 4;
-	const combination = [1, 3, 2];
+const Leafs = ({ numberOfLeafs = 12 }) => {
 	const leafs = [];
-	for (let i = 1; i <= numberOfLeafathones; i++)
-		leafs.push(<Leafathon key={i} combination={combination} />);
+	for (let i = 1; i <= numberOfLeafs; i++)
+		leafs.push(<StyledSVGLeaf key={i} className={"leaf"} />);
 
 	return <Wrapper>{leafs}</Wrapper>;
 };
@@ -55,66 +36,57 @@ const Wrapper = styled.div`
 	overflow: hidden;
 	max-height: 2.75rem;
 
-	.leaf1 {
+	.leaf:nth-of-type(3n + 1) {
 		fill: var(--color-leaf1);
-		animation-name: color_change_1;
+		animation-name: color_change;
 	}
-	.leaf2 {
+	.leaf:nth-of-type(3n + 2) {
 		fill: var(--color-leaf2);
-		animation-name: color_change_2;
+		animation-name: color_change;
+		animation-delay: 1500ms;
 	}
-	.leaf3 {
+	.leaf:nth-of-type(3n + 3) {
 		fill: var(--color-leaf3);
-		animation-name: color_change_3;
+		animation-name: color_change;
+		animation-delay: 3000ms;
 	}
-	.leaf1,
-	.leaf2,
-	.leaf3 {
-		animation-duration: 3s;
+	.leaf {
+		animation-duration: 2250ms;
 		animation-iteration-count: infinite;
 		animation-timing-function: ease-in-out;
 		animation-direction: alternate;
 	}
-	@keyframes color_change_1 {
-		0% {
-			fill: var(--color-leaf1);
+	&:hover {
+		.leaf:nth-of-type(3n + 2) {
+			animation-delay: 300ms;
 		}
-		50% {
-			fill: var(--color-leaf2);
+		.leaf:nth-of-type(3n + 3) {
+			animation-delay: 600ms;
 		}
-		100% {
-			fill: var(--color-leaf3);
-		}
-	}
-	@keyframes color_change_2 {
-		0% {
-			fill: var(--color-leaf2);
-		}
-		50% {
-			fill: var(--color-leaf3);
-		}
-		100% {
-			fill: var(--color-leaf1);
+		.leaf {
+			animation-duration: 450ms;
 		}
 	}
-	@keyframes color_change_3 {
+	@keyframes color_change {
 		0% {
-			fill: var(--color-leaf3);
-		}
-		50% {
 			fill: var(--color-leaf1);
 		}
-		100% {
+		50% {
 			fill: var(--color-leaf2);
+		}
+		100% {
+			fill: var(--color-leaf3);
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.leaf1,
-		.leaf2,
-		.leaf3 {
+		.leaf {
 			animation: none;
 		}
 	}
 `;
+
+Leafs.propTypes = {
+	numberOfLeafs: PropTypes.number,
+};
 
 export default Leafs;
