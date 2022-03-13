@@ -20,7 +20,7 @@ const Header = () => (
 );
 
 const ToggleWrapper = styled.div`
-	margin: auto 8px;
+	margin: auto 16px;
 `;
 
 const StyledHeader = styled.header`

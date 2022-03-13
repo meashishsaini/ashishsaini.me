@@ -16,8 +16,10 @@ const social = intl => ({
 		"https://www.github.com/meAshishSaini",
 	[intl.formatMessage({ defaultMessage: "linkedin" })]:
 		"https://www.linkedin.com/in/meAshishSaini",
-	[intl.formatMessage({ defaultMessage: "yo@ashishsaini.me" })]:
-		"mailto:yo@ashishsaini.me",
+	[intl.formatMessage({ defaultMessage: "polywork" })]:
+		"https://timeline.ashishsaini.dev/",
+	[intl.formatMessage({ defaultMessage: "yo@ashishsaini.dev" })]:
+		"mailto:yo@ashishsaini.dev",
 });
 
 const SocialLinks = () => {
