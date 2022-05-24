@@ -13,7 +13,7 @@ const Footer = () => {
 			})}
 			<AnimatedHeartWrapper>
 				<AnimatedHeart
-					href={"https://give.ashishsaini.me"}
+					href={"https://give.ashishsaini.dev"}
 					target="_blank"
 					rel="noreferrer"
 				>
@@ -42,7 +42,22 @@ const AnimatedHeartWrapper = styled.div`
 const AnimatedHeart = styled.a`
 	text-decoration: none;
 	&:hover {
-		font-size: 1.1em;
+		animation: beat;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		animation-direction: alternate;
+	}
+	@keyframes beat {
+		0% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
+		}
 	}
 `;
 export default Footer;
